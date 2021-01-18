@@ -5,6 +5,7 @@ const app = Vue.createApp({
         return {
             user1: false,
             user2: false,
+            inputClass: "",
             paragraphVisible: true,
             paragraphHidden: false,
             inputColor: "",
@@ -21,24 +22,9 @@ const app = Vue.createApp({
         },
     },
     methods: {
-        getUserInput(event) {
-            const inputValue = event.target.value;
-            if (inputValue === "user1") {
-                this.user1 = true;
-            } else if (inputValue === "user2") {
-                this.user2 = true;
-            } else {
-                this.user1 = false;
-                this.user2 = false;
-            }
-        },
         toggleParagraphVisibility() {
             this.paragraphVisible = !this.paragraphVisible;
             this.paragraphHidden = !this.paragraphHidden;
-        },
-        setBackgroundColor(event) {
-            console.log(event.target.value);
-            this.inputColor = event.target.value;
         },
     },
 });
