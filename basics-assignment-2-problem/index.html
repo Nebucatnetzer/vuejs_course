@@ -25,7 +25,7 @@
         <p>{{ firstInputValue }}</p>
         <hr />
         <!-- 3) Repeat 2) but only output the entered value if the ENTER key was pressed -->
-        <input type="text" v-on:keydown.enter="updateSecondOutput" />
+        <input type="text" v-on:keydown="updateFirstOutput" v-on:keyup.enter="updateSecondOutput" />
         <p>{{ secondInputValue }}</p>
     </section>
 </body>
