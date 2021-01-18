@@ -5,6 +5,7 @@ const app = Vue.createApp({
             name: "",
             lastName: "",
             // fullName: "",
+            vueUrl: "https://vueproject.com",
         };
     },
     watch: {
