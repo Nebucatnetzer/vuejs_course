@@ -1,22 +1,25 @@
 const app = Vue.createApp({
-  data() {
-    return {
-      counter: 0,
-      name: ''
-    };
-  },
-  methods: {
-    setName(event, lastName) {
-      this.name = event.target.value + ' ' + lastName;
+    data() {
+        return {
+            counter: 0,
+            name: "",
+        };
     },
-    add(num) {
-      this.counter = this.counter + num;
+    methods: {
+        setName(event, lastName) {
+            this.name = event.target.value;
+        },
+        add(num) {
+            this.counter = this.counter + num;
+        },
+        reduce(num) {
+            this.counter = this.counter - num;
+            // this.counter--;
+        },
+        resetInput() {
+            this.name = "";
+        },
     },
-    reduce(num) {
-      this.counter = this.counter - num;
-      // this.counter--;
-    }
-  }
 });
 
-app.mount('#events');
+app.mount("#events");
