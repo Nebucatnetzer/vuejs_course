@@ -18,9 +18,10 @@ const app = Vue.createApp({
         status() {
             if (this.result < 37) {
                 return "Not there yet";
-            }
-            if (this.result > 37) {
+            } else if (this.result > 37) {
                 return "Too much!";
+            } else if (this.result === 37) {
+                return this.result;
             }
         },
     },
