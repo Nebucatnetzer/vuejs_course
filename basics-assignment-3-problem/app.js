@@ -3,31 +3,31 @@
 const app = Vue.createApp({
     data() {
         return {
-            result: 0,
+            counter: 0,
         };
     },
     watch: {
-        result() {
+        status() {
             const that = this;
             setTimeout(function () {
-                that.result = 0;
+                that.counter = 0;
             }, 5000);
         },
     },
     computed: {
         status() {
-            if (this.result < 37) {
+            if (this.counter < 37) {
                 return "Not there yet";
-            } else if (this.result > 37) {
+            } else if (this.counter > 37) {
                 return "Too much!";
-            } else if (this.result === 37) {
-                return this.result;
+            } else if (this.counter === 37) {
+                return this.counter;
             }
         },
     },
     methods: {
         increaseCounter(value) {
-            this.result += value;
+            this.counter += value;
         },
     },
 });
