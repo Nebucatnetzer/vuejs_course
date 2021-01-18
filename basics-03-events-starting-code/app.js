@@ -5,11 +5,11 @@ const app = Vue.createApp({
         };
     },
     methods: {
-        increaseCounter() {
-            this.counter++;
+        increaseCounter(inputNumber) {
+            this.counter = this.counter + inputNumber;
         },
-        decreaseCounter() {
-            this.counter--;
+        decreaseCounter(inputNumber) {
+            this.counter = this.counter - inputNumber;
         },
     },
 });
