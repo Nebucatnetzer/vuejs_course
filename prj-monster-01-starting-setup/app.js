@@ -10,6 +10,7 @@ const app = Vue.createApp({
             playerHealth: 100,
             monsterHealth: 100,
             battleLog: [],
+            currentRound: 0,
         };
     },
     computed: {
@@ -19,13 +20,21 @@ const app = Vue.createApp({
         playerBarStyles() {
             return { width: this.playerHealth + "%" };
         },
+        specialAttackAllowed() {
+            return this.currentRound % 3 !== 0;
+        },
     },
     methods: {
         attackMonster() {
+            this.currentRound++;
             this.monsterHealth -= attackValue(5, 12);
             this.attackPlayer();
         },
-        specialAttackMonster() {},
+        specialAttackMonster() {
+            this.currentRound++;
+            this.monsterHealth -= attackValue(10, 25);
+            this.attackPlayer();
+        },
         healPlayer() {},
         surrender() {},
         attackPlayer() {
