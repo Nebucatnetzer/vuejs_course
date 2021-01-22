@@ -74,6 +74,7 @@ const app = Vue.createApp({
             this.monsterHealth = 100;
             this.winner = null;
             this.currentRound = 0;
+            this.battleLog = [];
         },
         attackMonster() {
             this.currentRound++;
