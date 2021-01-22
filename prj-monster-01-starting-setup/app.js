@@ -79,16 +79,14 @@ const app = Vue.createApp({
             this.currentRound++;
             const attackValue = getRandomValue(5, 12);
             this.monsterHealth -= attackValue;
-            this.addToBattleLog("You deal " + attackValue + " damage.");
+            this.addToBattleLog("player", "attack", attackValue);
             this.attackPlayer();
         },
         specialAttackMonster() {
             this.currentRound++;
             const attackValue = getRandomValue(10, 25);
             this.monsterHealth -= attackValue;
-            this.addToBattleLog(
-                "Your special attack deals " + attackValue + " damage."
-            );
+            this.addToBattleLog("player", "special attack", attackValue);
             this.attackPlayer();
         },
         healPlayer() {
@@ -99,9 +97,7 @@ const app = Vue.createApp({
             } else {
                 this.playerHealth += healValue;
             }
-            this.addToBattleLog(
-                "You heal yourself with " + healValue + " heal points."
-            );
+            this.addToBattleLog("player", "heal", healValue);
             this.attackPlayer();
         },
         surrender() {
@@ -109,13 +105,15 @@ const app = Vue.createApp({
         },
         attackPlayer() {
             const attackValue = getRandomValue(8, 15);
-            this.addToBattleLog(
-                "The monster deals " + attackValue + " damage."
-            );
+            this.addToBattleLog("monster", "attack", attackValue);
             this.playerHealth -= attackValue;
         },
-        addToBattleLog(input) {
-            this.battleLog.push(input);
+        addToBattleLog(who, what, value) {
+            this.battleLog.unshift({
+                actionBy: who,
+                actionType: what,
+                actionValue: value,
+            });
         },
     },
 });
