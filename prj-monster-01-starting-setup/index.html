@@ -27,6 +27,7 @@
             <h3 v-if="monsterWon">You lost!</h3>
             <h3 v-if="playerWon">You won!</h3>
             <h3 v-if="draw">It's a draw'!</h3>
+            <button @click="restartGame">Start a new game</button>
         </section>
         <section id="player" class="container">
             <h2>Your Health</h2>
