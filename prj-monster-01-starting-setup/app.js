@@ -1,6 +1,6 @@
 "use strict";
 
-function attackValue(min, max) {
+function getRandomValue(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
@@ -27,12 +27,14 @@ const app = Vue.createApp({
     methods: {
         attackMonster() {
             this.currentRound++;
-            this.monsterHealth -= attackValue(5, 12);
+            this.monsterHealth -= getRandomValue(5, 12);
             this.attackPlayer();
         },
         specialAttackMonster() {
             this.currentRound++;
-            this.monsterHealth -= attackValue(10, 25);
+            this.monsterHealth -= getRandomValue(10, 25);
+            this.attackPlayer();
+        },
             this.attackPlayer();
         },
         healPlayer() {},
