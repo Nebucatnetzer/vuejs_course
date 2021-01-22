@@ -22,6 +22,12 @@
                 <div class="healthbar__value" :style="monsterBarStyles"></div>
             </div>
         </section>
+        <section v-if="winner" class="container">
+            <h2>Game Over!</h2>
+            <h3 v-if="monsterWon">You lost!</h3>
+            <h3 v-if="playerWon">You won!</h3>
+            <h3 v-if="draw">It's a draw'!</h3>
+        </section>
         <section id="player" class="container">
             <h2>Your Health</h2>
             <div class="healthbar">
