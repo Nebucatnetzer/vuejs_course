@@ -95,7 +95,9 @@ const app = Vue.createApp({
             }
             this.attackPlayer();
         },
-        surrender() {},
+        surrender() {
+            this.winner = "monster";
+        },
         attackPlayer() {
             this.playerHealth -= getRandomValue(8, 15);
         },
