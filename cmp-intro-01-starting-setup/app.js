@@ -19,7 +19,20 @@ const app = Vue.createApp({
             ],
         };
     },
-    methods: {},
+});
+
+// use multiword component names
+app.component("user-contact", {
+    data() {
+        return {
+            detailsAreVisible: false,
+        };
+    },
+    methods: {
+        toggleDetails() {
+            this.detailsAreVisible = !this.detailsAreVisible;
+        },
+    },
 });
 
 app.mount("#app");
