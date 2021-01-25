@@ -1,9 +1,15 @@
 <template>
     <h2>My Friends</h2>
+    <ul>
+        <friend-contact></friend-contact>
+        <friend-contact></friend-contact>
+    </ul>
 </template>
 
 <script>
+import FriendContact from "./components/FriendContact.vue";
 export default {
+    components: { FriendContact },
     data() {
         return {
             friends: [
