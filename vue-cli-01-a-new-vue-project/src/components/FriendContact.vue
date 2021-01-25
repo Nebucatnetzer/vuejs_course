@@ -1,7 +1,7 @@
 <template>
     <li>
         <h2>{{ friend.name }}</h2>
-        <button @click="toggleDetails()">Show Details</button>
+        <button @click="toggleDetails()">{{ buttonDetailsText }}</button>
         <ul v-if="detailsAreVisible">
             <li><strong>Phone:</strong> {{ friend.phone }}</li>
             <li><strong>Email:</strong> {{ friend.email }}</li>
@@ -21,6 +21,15 @@ export default {
                 email: "manuel@localhost.com",
             },
         };
+    },
+    computed: {
+        buttonDetailsText() {
+            if (this.detailsAreVisible) {
+                return "Hide Details";
+            } else {
+                return "Show Details";
+            }
+        },
     },
     methods: {
         toggleDetails() {
