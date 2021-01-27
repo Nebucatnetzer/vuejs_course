@@ -14,6 +14,10 @@
 export default {
     //props: ["name", "emailAddress", "phoneNumber"],
     props: {
+        id: {
+            type: String,
+            required: true,
+        },
         name: {
             type: String,
             required: true,
@@ -35,7 +39,6 @@ export default {
     data() {
         return {
             detailsAreVisible: false,
-            friendIsFavorite: this.isFavorite,
         };
     },
     computed: {
@@ -47,7 +50,13 @@ export default {
             }
         },
         isFavoriteText() {
-            if (this.friendIsFavorite) {
+            if (this.isFavo>{{ name }} {{ isFavoriteText }}</h2>
+        <button @click="toggleDetails()">{{ buttonDetailsText }}</button>
+        <button @click="toggleFavorite()">Mark as Favorite</button>
+        <ul v-if="detailsAreVisible">
+            <li><strong>Phone:</strong> {{ phoneNumber }}</li>
+            <li><strong>Email:</strong> {{ emailAddress }}</li>
+        </ul>rite) {
                 return "(Favorite)";
             } else {
                 return "";
@@ -59,7 +68,7 @@ export default {
             this.detailsAreVisible = !this.detailsAreVisible;
         },
         toggleFavorite() {
-            this.friendIsFavorite = !this.friendIsFavorite;
+            this.$emit("toggle-favorite", this.id);
         },
     },
 };
