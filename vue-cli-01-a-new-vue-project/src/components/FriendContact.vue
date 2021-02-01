@@ -7,6 +7,7 @@
             <li><strong>Phone:</strong> {{ phoneNumber }}</li>
             <li><strong>Email:</strong> {{ emailAddress }}</li>
         </ul>
+        <button @click="$emit('delete-friend', id)">Delete</button>
     </li>
 </template>
 
@@ -38,6 +39,14 @@ export default {
     },
     emits: {
         "toggle-favorite": function(id) {
+            if (id) {
+                return true;
+            } else {
+                console.warn("ID is missing!");
+                return false;
+            }
+        },
+        "delete-friend": function(id) {
             if (id) {
                 return true;
             } else {
