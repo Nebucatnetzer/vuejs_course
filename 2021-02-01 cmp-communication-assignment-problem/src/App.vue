@@ -2,7 +2,7 @@
     <div>
         <h1>User App</h1>
         <active-user :username="user.username" :age="user.age"></active-user>
-        <user-data></user-data>
+        <user-data @active-user="setActiveUser"></user-data>
     </div>
 </template>
 
@@ -15,6 +15,11 @@ export default {
                 age: 18,
             },
         };
+    },
+    methods: {
+        setActiveUser(user) {
+            this.user = user;
+        },
     },
 };
 </script>
