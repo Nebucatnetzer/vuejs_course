@@ -7,11 +7,18 @@
 
 <script>
 export default {
+    props: {
+        username: {
+            type: String,
+            required: true,
+        },
+        age: {
+            type: Number,
+            required: true,
+        },
+    },
     data() {
-        return {
-            username: "Maxi",
-            age: 18,
-        };
+        return {};
     },
 };
 </script>
