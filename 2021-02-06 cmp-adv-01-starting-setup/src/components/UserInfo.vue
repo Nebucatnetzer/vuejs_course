@@ -8,7 +8,7 @@
     </section>
 </template>
 
-<script>
+<script scoped>
 export default {
     props: ["fullName", "infoText", "role"],
 };
@@ -23,7 +23,7 @@ section {
     padding: 1rem;
 }
 
-section div {
+section header {
     display: flex;
     justify-content: space-between;
     align-items: center;
