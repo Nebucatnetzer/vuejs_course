@@ -3,10 +3,12 @@
         <h2>Manage Goals</h2>
         <input type="text" ref="goal" />
         <button @click="setGoal">Set Goal</button>
-        <error-alert v-if="inputIsInvalid">
-            <h2>Input may not be empty</h2>
-            <button @click="resetErrorDialog">Ok</button>
-        </error-alert>
+        <teleport to="body">
+            <error-alert v-if="inputIsInvalid">
+                <h2>Input may not be empty</h2>
+                <button @click="resetErrorDialog">Ok</button>
+            </error-alert>
+        </teleport>
     </div>
 </template>
 <script>
