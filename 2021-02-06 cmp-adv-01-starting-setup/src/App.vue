@@ -13,6 +13,7 @@
         <active-goals
             v-if="selectedComponent === 'active-goals'"
         ></active-goals> -->
+        <component :is="selectedComponent"></component>
     </div>
 </template>
 
