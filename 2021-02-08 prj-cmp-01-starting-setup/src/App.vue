@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import TheHeader from './components/layout/TheHeader';
+import TheHeader from './components/layouts/TheHeader';
 import storedResources from './components/resources/StoredResources';
 export default {
   components: {
