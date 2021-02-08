@@ -23,19 +23,41 @@
       </div>
     </form>
   </base-card>
+  <teleport to="body">
+    <error-alert v-if="inputIsInvalid">
+      <h2>Input may not be empty</h2>
+      <button @click="resetErrorDialog">Ok</button>
+    </error-alert>
+  </teleport>
 </template>
 
 <script>
+import ErrorAlert from '../ErrorAlert';
 export default {
+  components: {
+    ErrorAlert
+  },
   inject: ['storeNewResource'],
   data() {
     return {
       title: '',
       description: '',
-      link: ''
+      link: '',
+      inputIsInvalid: false
     };
   },
   methods: {
+    validateInput(resource) {
+      if (!resource.title || !resource.description || !resource.link) {
+        this.inputIsInvalid = true;
+        return false;
+      } else {
+        return true;
+      }
+    },
+    resetErrorDialog() {
+      this.inputIsInvalid = false;
+    },
     returnNewResource() {
       const resource = {
         id: new Date().toISOString(),
@@ -43,7 +65,9 @@ export default {
         description: this.description,
         link: this.link
       };
-      this.storeNewResource(resource);
+      if (this.validateInput(resource)) {
+        this.storeNewResource(resource);
+      }
     }
   }
 };
