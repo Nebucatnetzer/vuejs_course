@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div @click="$emit('close')"></div>
   <dialog open>
     <header>
       <slot name="header">
@@ -17,7 +17,8 @@ export default {
       type: String,
       required: false
     }
-  }
+  },
+  emits: ['close']
 };
 </script>
 <style scoped>
