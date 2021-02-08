@@ -1,17 +1,22 @@
 <template>
   <base-card>
-    <form>
+    <form @submit.prevent="returnNewResource">
       <div class="form-control">
         <label for="title">Title</label>
-        <input type="text" name="title" id="title" />
+        <input type="text" name="title" id="title" v-model="title" />
       </div>
       <div class="form-control">
         <label for="description">Description</label>
-        <textarea name="description" id="description" rows="3"></textarea>
+        <textarea
+          name="description"
+          id="description"
+          rows="3"
+          v-model="description"
+        ></textarea>
       </div>
       <div class="form-control">
         <label for="link">Link</label>
-        <input type="text" name="link" id="link" />
+        <input type="text" name="link" id="link" v-model="link" />
       </div>
       <div>
         <base-button type="submit">Add Resource</base-button>
@@ -21,7 +26,27 @@
 </template>
 
 <script>
-export default {};
+export default {
+  emits: ['new-resource'],
+  data() {
+    return {
+      title: '',
+      description: '',
+      link: ''
+    };
+  },
+  methods: {
+    returnNewResource() {
+      const resource = {
+        id: this.title,
+        title: this.title,
+        description: this.description,
+        link: this.link
+      };
+      this.$emit('new-resource', resource);
+    }
+  }
+};
 </script>
 
 <style scoped>
