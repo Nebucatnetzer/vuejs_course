@@ -29,7 +29,7 @@
         Input may not be empty
       </template>
       <template #actions>
-        <button @click="resetErrorDialog">Ok</button>
+        <base-button @click="resetErrorDialog">Ok</base-button>
       </template>
     </base-dialog>
   </teleport>
