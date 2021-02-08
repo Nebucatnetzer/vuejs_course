@@ -24,9 +24,7 @@
     </form>
   </base-card>
   <teleport to="body">
-    <base-dialog v-if="inputIsInvalid">
-      <template #header>
-        Input may not be empty
+    <base-dialog v-if="inputIsInvalid" title="Input may not be empty">
       </template>
       <template #actions>
         <base-button @click="resetErrorDialog">Ok</base-button>
