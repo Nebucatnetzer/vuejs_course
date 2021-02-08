@@ -7,7 +7,11 @@
       </slot>
     </header>
     <section><slot name="default"></slot></section>
-    <menu><slot name="actions"></slot></menu>
+    <menu
+      ><slot name="actions">
+        <base-button @click="$emit('close')">Close</base-button>
+      </slot></menu
+    >
   </dialog>
 </template>
 <script>
