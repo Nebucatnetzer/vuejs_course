@@ -24,19 +24,19 @@
     </form>
   </base-card>
   <teleport to="body">
-    <error-alert v-if="inputIsInvalid">
-      <h2>Input may not be empty</h2>
-      <button @click="resetErrorDialog">Ok</button>
-    </error-alert>
+    <base-dialog v-if="inputIsInvalid">
+      <template #header>
+        Input may not be empty
+      </template>
+      <template #actions>
+        <button @click="resetErrorDialog">Ok</button>
+      </template>
+    </base-dialog>
   </teleport>
 </template>
 
 <script>
-import ErrorAlert from '../ErrorAlert';
 export default {
-  components: {
-    ErrorAlert
-  },
   inject: ['storeNewResource'],
   data() {
     return {
@@ -48,7 +48,11 @@ export default {
   },
   methods: {
     validateInput(resource) {
-      if (!resource.title || !resource.description || !resource.link) {
+      if (
+        resource.title === '' ||
+        resource.description === '' ||
+        resource.link === ''
+      ) {
         this.inputIsInvalid = true;
         return false;
       } else {
@@ -61,9 +65,9 @@ export default {
     returnNewResource() {
       const resource = {
         id: new Date().toISOString(),
-        title: this.title,
-        description: this.description,
-        link: this.link
+        title: this.title.trim(),
+        description: this.description.trim(),
+        link: this.link.trim()
       };
       if (this.validateInput(resource)) {
         this.storeNewResource(resource);
