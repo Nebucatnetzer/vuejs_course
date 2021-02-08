@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  emits: ['new-resource'],
+  inject: ['storeNewResource'],
   data() {
     return {
       title: '',
@@ -38,12 +38,12 @@ export default {
   methods: {
     returnNewResource() {
       const resource = {
-        id: this.title,
+        id: new Date().toISOString(),
         title: this.title,
         description: this.description,
         link: this.link
       };
-      this.$emit('new-resource', resource);
+      this.storeNewResource(resource);
     }
   }
 };
