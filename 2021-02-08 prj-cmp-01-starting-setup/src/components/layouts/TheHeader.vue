@@ -1,11 +1,13 @@
 <template>
   <header>
-    <h1>One big application</h1>
+    <h1>{{ title }}</h1>
   </header>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['title']
+};
 </script>
 
 <style scoped>

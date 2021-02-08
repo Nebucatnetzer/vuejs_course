@@ -1,5 +1,5 @@
 <template>
-  <the-header></the-header>
+  <the-header title="One big application"></the-header>
   <stored-resources :stored-resources="storedResources"></stored-resources>
 </template>
 
