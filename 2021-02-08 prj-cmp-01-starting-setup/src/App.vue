@@ -1,33 +1,15 @@
 <template>
   <the-header title="One big application"></the-header>
-  <stored-resources :stored-resources="storedResources"></stored-resources>
+  <the-resources></the-resources>
 </template>
 
 <script>
 import TheHeader from './components/layouts/TheHeader';
-import storedResources from './components/resources/StoredResources';
+import TheResources from './components/resources/TheResources.vue';
 export default {
   components: {
-    storedResources,
-    TheHeader
-  },
-  data() {
-    return {
-      storedResources: [
-        {
-          id: 'official-guide',
-          title: 'Oficial Guide',
-          description: 'The official documentation for Vue.js.',
-          link: 'https://vuejs.org'
-        },
-        {
-          id: 'duckduckgo',
-          title: 'Duckduckgo',
-          description: 'A search engine that values privacy.',
-          link: 'https://duckduckgo.com'
-        }
-      ]
-    };
+    TheHeader,
+    TheResources
   }
 };
 </script>
