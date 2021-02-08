@@ -1,12 +1,15 @@
 <template>
+  <the-header></the-header>
   <stored-resources :stored-resources="storedResources"></stored-resources>
 </template>
 
 <script>
+import TheHeader from './components/layout/TheHeader';
 import storedResources from './components/resources/StoredResources';
 export default {
   components: {
-    storedResources
+    storedResources,
+    TheHeader
   },
   data() {
     return {
