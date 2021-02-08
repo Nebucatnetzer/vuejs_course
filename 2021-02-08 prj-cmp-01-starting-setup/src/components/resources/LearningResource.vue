@@ -8,8 +8,8 @@
     </div>
     <p>{{ description }}</p>
     <nav><a :href="link">View Resource</a></nav>
-  </li></template
->
+  </li>
+</template>
 
 <script>
 export default {
