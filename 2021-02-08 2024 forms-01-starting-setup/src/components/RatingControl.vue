@@ -14,29 +14,26 @@
 
 <script>
 export default {
-  data() {
-    return {
-      activeOption: null
-    };
-  },
+  props: ['modelValue'],
+  emits: ['update:modelValue'],
 
   computed: {
     poorIsActive() {
-      if (this.activeOption === 'poor') {
+      if (this.modelValue === 'poor') {
         return 'active';
       } else {
         return '';
       }
     },
     averageIsActive() {
-      if (this.activeOption === 'average') {
+      if (this.modelValue === 'average') {
         return 'active';
       } else {
         return '';
       }
     },
     greatIsActive() {
-      if (this.activeOption === 'great') {
+      if (this.modelValue === 'great') {
         return 'active';
       } else {
         return '';
@@ -46,7 +43,7 @@ export default {
 
   methods: {
     activate(option) {
-      this.activeOption = option;
+      this.$emit('update:modelValue', option);
     }
   }
 };

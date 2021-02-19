@@ -81,7 +81,9 @@
         />
         <label for="how-other">Other</label>
       </div>
-      <div class="form-control"><form-control></form-control></div>
+      <div class="form-control">
+        <form-control v-model="rating"></form-control>
+      </div>
       <div class="form-control">
         <input
           type="checkbox"
@@ -111,7 +113,8 @@ export default {
       referrer: 'wom',
       interest: [],
       how: null,
-      confirmTerms: false
+      confirmTerms: false,
+      rating: null
     };
   },
   methods: {
@@ -128,6 +131,8 @@ export default {
       this.how = null;
       console.log(this.confirmTerms);
       this.confirmTerms = false;
+      console.log(this.rating);
+      this.rating = null;
     }
   }
 };
