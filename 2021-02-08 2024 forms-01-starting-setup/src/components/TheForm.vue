@@ -81,6 +81,7 @@
         />
         <label for="how-other">Other</label>
       </div>
+      <div class="form-control"><form-control></form-control></div>
       <div class="form-control">
         <input
           type="checkbox"
@@ -98,7 +99,11 @@
 </template>
 
 <script>
+import FormControl from './RatingControl';
 export default {
+  components: {
+    FormControl
+  },
   data() {
     return {
       userName: '',
