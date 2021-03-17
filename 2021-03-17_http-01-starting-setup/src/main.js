@@ -1,3 +1,5 @@
+'use strict';
+
 import { createApp } from 'vue';
 
 import BaseCard from './components/UI/BaseCard.vue';
