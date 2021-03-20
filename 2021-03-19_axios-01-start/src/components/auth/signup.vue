@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from '../../axios-auth';
   export default {
     data () {
       return {
@@ -104,7 +104,7 @@ import axios from 'axios';
           terms: this.terms
         }
         console.log(formData)
-        axios.post("https://axios-test-44b62-default-rtdb.europe-west1.firebasedatabase.app/users.json", formData)
+        axios.post("/users.json", formData)
             .then(response => console.log(response))
             .catch(error => console.log(error));
       }
