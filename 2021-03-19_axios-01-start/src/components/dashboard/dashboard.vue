@@ -15,7 +15,7 @@ export default {
         }
     },
     created(){
-        axios.get("https://axios-test-44b62-default-rtdb.europe-west1.firebasedatabase.app/users.json")
+        axios.get('/users.json')
             .then(response => {
                 console.log(response)
                 const data = response.data
