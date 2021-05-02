@@ -6,8 +6,6 @@ import TeamsList from './components/teams/TeamsList';
 import TeamMembers from './components/teams/TeamMembers';
 import UsersList from './components/users/UsersList';
 
-const app = createApp(App);
-
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -28,8 +26,7 @@ const router = createRouter({
     { path: '/users', component: UsersList }
   ],
   linkActiveClass: 'active',
-  scrollBehavior(to, from, savedPosition) {
-    console.log(to, from);
+  scrollBehavior(_, _2, savedPosition) {
     if (savedPosition) {
       return savedPosition;
     }
@@ -37,10 +34,21 @@ const router = createRouter({
   }
 });
 
+router.beforeEach(function(to, from, next) {
+  console.log(to, from);
+  //   if (to.name === 'team-members') {
+  //     next();
+  //   } else {
+  //     next({ name: 'team-members', params: { teamId: 't2' } });
+  //   }
+  next();
+});
+const app = createApp(App);
 app.use(router);
 app.mount('#app');
 
 if (module.hot) {
+  0;
   module.hot.accept(); // already had this init code
 
   module.hot.addStatusHandler(status => {
