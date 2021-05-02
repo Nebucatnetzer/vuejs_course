@@ -26,7 +26,15 @@ const router = createRouter({
       ]
     },
     { path: '/users', component: UsersList }
-  ]
+  ],
+  linkActiveClass: 'active',
+  scrollBehavior(to, from, savedPosition) {
+    console.log(to, from);
+    if (savedPosition) {
+      return savedPosition;
+    }
+    return { left: 0, top: 0 };
+  }
 });
 
 app.use(router);
