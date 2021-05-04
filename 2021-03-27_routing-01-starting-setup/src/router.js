@@ -20,7 +20,8 @@ const router = createRouter({
           name: 'team-members',
           path: ':teamId',
           component: TeamMembers,
-          props: true
+          props: true,
+          query: { sort: 'asc' }
         }
       ]
     },
