@@ -6,8 +6,7 @@ export default {
   namespaced: true,
   state() {
     return {
-      items: [],
-      qty: 0
+      items: []
     };
   },
   actions: cartActions,

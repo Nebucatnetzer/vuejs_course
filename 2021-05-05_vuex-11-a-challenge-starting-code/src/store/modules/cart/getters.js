@@ -1,6 +1,10 @@
 export default {
   quantity(state) {
-    return state.qty;
+    var itemsInCart = 0;
+    state.items.forEach(item => {
+      itemsInCart = itemsInCart + item.qty;
+    });
+    return itemsInCart;
   },
   items(state) {
     return state.items;
@@ -8,7 +12,9 @@ export default {
   total(state) {
     var total = 0;
     state.items.forEach(item => {
-      total = total + item.price;
+      var itemTotal = 0;
+      itemTotal = item.price * item.qty;
+      total = total + itemTotal;
     });
     return total.toFixed(2);
   }
