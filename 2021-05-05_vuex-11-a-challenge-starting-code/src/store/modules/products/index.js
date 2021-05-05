@@ -1,6 +1,4 @@
-//import counterActions from './actions.js';
 import productGetters from './getters.js';
-//import counterMutations from './mutations.js';
 
 export default {
   namespaced: true,
