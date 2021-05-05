@@ -2,7 +2,7 @@
   <section>
     <h2>Your Cart</h2>
     <h3>
-      Total Amount: <base-badge mode="elegant">${{ finalTotal }}</base-badge>
+      Total Amount: <base-badge mode="elegant">${{ total }}</base-badge>
     </h3>
     <ul>
       <cart-item
@@ -24,11 +24,11 @@ import { mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters('cart', ['items', 'finalTotal'])
+    ...mapGetters('cart', ['items', 'total'])
   },
   components: {
     CartItem
-  },
+  }
 };
 </script>
 

@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="item__total">Total: ${{ itemTotal }}</div>
-      <button @click="removeProductFromCart">Remove</button>
+      <button @click="removeProductFromCart(prodId)">Remove</button>
     </div>
   </li>
 </template>
@@ -25,7 +25,6 @@
 import { mapActions } from 'vuex';
 
 export default {
-  inject: ['removeProductFromCart'],
   props: ['prodId', 'title', 'image', 'price', 'qty'],
   computed: {
     itemTotal() {
