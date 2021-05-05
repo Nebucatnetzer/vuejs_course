@@ -28,5 +28,5 @@ export default {
     state.items.splice(productInCartIndex, 1);
     state.qty -= prodData.qty;
     state.total -= prodData.price * prodData.qty;
-  },
+  }
 };
