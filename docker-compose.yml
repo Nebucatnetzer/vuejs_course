@@ -8,4 +8,4 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./2021-05-05_vuex-11-a-challenge-starting-code/:/app
+      - ./2021-07-30_composition-01-starting-setup/:/app
