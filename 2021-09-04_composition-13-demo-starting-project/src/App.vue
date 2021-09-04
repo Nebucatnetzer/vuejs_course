@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 import USER_DATA from './dummy-data.js';
 
 import UserList from './components/users/UserList.vue';
@@ -18,8 +18,8 @@ export default {
     ProjectsList
   },
   setup() {
-    var selectedUser = ref(null);
-    const activeUsers = reactive(USER_DATA);
+    const selectedUser = ref(null);
+    const activeUsers = USER_DATA;
 
     function selectUser(uid) {
       selectedUser = activeUsers.find(usr => usr.id === uid);
@@ -27,8 +27,8 @@ export default {
 
     return {
       activeUsers,
-      selectUser,
-      selectedUser
+      selectedUser,
+      selectUser
     };
   }
 };
