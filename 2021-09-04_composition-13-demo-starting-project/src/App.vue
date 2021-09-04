@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { ref, reactive } from 'vue';
 import USER_DATA from './dummy-data.js';
 
 import UserList from './components/users/UserList.vue';
@@ -14,19 +15,22 @@ import ProjectsList from './components/projects/ProjectsList.vue';
 export default {
   components: {
     UserList,
-    ProjectsList,
+    ProjectsList
   },
-  data() {
+  setup() {
+    var selectedUser = ref(null);
+    const activeUsers = reactive(USER_DATA);
+
+    function selectUser(uid) {
+      selectedUser = activeUsers.find(usr => usr.id === uid);
+    }
+
     return {
-      selectedUser: null,
-      activeUsers: USER_DATA,
+      activeUsers,
+      selectUser,
+      selectedUser
     };
-  },
-  methods: {
-    selectUser(uid) {
-      this.selectedUser = this.activeUsers.find((usr) => usr.id === uid);
-    },
-  },
+  }
 };
 </script>
 
