@@ -13,13 +13,14 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+//import { ref } from 'vue';
+import { reactive } from 'vue';
 
 export default {
   setup() {
     const courseGoal = 'Something is written here';
     //const showGoal = ref(false);
-    const Goal = ref({
+    const Goal = reactive({
       visibility: false
     });
 
@@ -30,8 +31,13 @@ export default {
     //}
 
     // ref object way
+    //function toggleGoal() {
+    //  Goal.value.visibility = !Goal.value.visibility;
+    //}
+
+    // reactive way
     function toggleGoal() {
-      Goal.value.visibility = !Goal.value.visibility;
+      Goal.visibility = !Goal.visibility;
     }
 
     return {
