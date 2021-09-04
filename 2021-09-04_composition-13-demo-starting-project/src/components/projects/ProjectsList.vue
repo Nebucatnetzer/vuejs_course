@@ -1,5 +1,5 @@
 <template>
-  <base-container v-if="userSearch">
+  <base-container v-if="user">
     <h2>{{ user.fullName }}: Projects</h2>
     <base-search
       v-if="hasProjects"
