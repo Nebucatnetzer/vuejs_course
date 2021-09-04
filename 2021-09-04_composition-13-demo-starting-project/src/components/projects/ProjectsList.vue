@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, toRefs } from 'vue';
 import ProjectItem from './ProjectItem.vue';
 
 export default {
@@ -46,6 +46,10 @@ export default {
       return props.user.projects && availableProjects.value.length > 0;
     });
 
+    //const propsWithRefs = toRefs(props);
+    //const user = propsWithRefs.user;
+    const { user } = toRefs(props);
+
     watch(enteredSearchTerm, function(newValue) {
       setTimeout(() => {
         if (newValue === enteredSearchTerm.value) {
@@ -53,7 +57,7 @@ export default {
         }
       }, 300);
     });
-    watch(props.user, function() {
+    watch(user, function() {
       enteredSearchTerm.value = '';
     });
 
