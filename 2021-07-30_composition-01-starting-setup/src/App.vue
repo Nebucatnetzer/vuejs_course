@@ -3,7 +3,6 @@
     <user-data
       :first-name="user.firstName"
       :last-name="user.lastName"
-      :age="user.age"
     ></user-data>
     <button @click="setAge">Change Age</button>
     <div>
@@ -16,7 +15,7 @@
 </template>
 
 <script>
-import { reactive, computed, watch, ref } from 'vue';
+import { reactive, computed, watch, ref, provide } from 'vue';
 import UserData from './components/UserData';
 
 export default {
@@ -44,6 +43,8 @@ export default {
     user.name = computed(function() {
       return user.firstName + ' ' + user.lastName;
     });
+
+    provide('user-age', user.age);
 
     function setAge() {
       user.age = '25';

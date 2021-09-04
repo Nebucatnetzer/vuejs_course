@@ -4,16 +4,19 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed, inject } from 'vue';
 export default {
-  props: ['firstName', 'lastName', 'age'],
+  props: ['firstName', 'lastName'],
   setup(props) {
     const userName = computed(function() {
       return props.firstName + ' ' + props.lastName;
     });
 
+    const age = inject('user-age');
+
     return {
-      userName
+      userName,
+      age
     };
   }
 };
