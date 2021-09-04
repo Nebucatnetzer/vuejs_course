@@ -33,32 +33,32 @@ export default {
     const activeSearchTerm = ref('');
     const enteredSearchTerm = ref('');
 
-    const hasProjects = computed(function() {
-      return props.user.projects && availableProjects.value.length > 0;
-    });
     const availableProjects = computed(function() {
       if (activeSearchTerm.value) {
         return props.user.projects.filter(prj =>
-          prj.title.includes(activeSearchTerm)
+          prj.title.includes(activeSearchTerm.value)
         );
       }
       return props.user.projects;
     });
 
-    watch(enteredSearchTerm, function(val) {
+    const hasProjects = computed(function() {
+      return props.user.projects && availableProjects.value.length > 0;
+    });
+
+    watch(enteredSearchTerm, function(newValue) {
       setTimeout(() => {
-        if (val === enteredSearchTerm.value) {
-          activeSearchTerm.value = val;
+        if (newValue === enteredSearchTerm.value) {
+          activeSearchTerm.value = newValue;
         }
       }, 300);
+    });
+    watch(props.user, function() {
+      enteredSearchTerm.value = '';
     });
 
     function updateSearch(val) {
       enteredSearchTerm.value = val;
-    }
-
-    function userSearch() {
-      enteredSearchTerm.value = '';
     }
 
     return {
@@ -66,8 +66,7 @@ export default {
       activeSearchTerm,
       hasProjects,
       availableProjects,
-      updateSearch,
-      userSearch
+      updateSearch
     };
   }
 };
