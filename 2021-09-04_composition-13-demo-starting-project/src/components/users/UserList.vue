@@ -35,9 +35,9 @@ export default {
   },
   props: ['users'],
   setup(props) {
-    var enteredSearchTerm = ref('');
+    const enteredSearchTerm = ref('');
     const activeSearchTerm = ref('');
-    var sorting = ref(null);
+    const sorting = ref(null);
 
     const availableUsers = computed(function() {
       let users = [];
@@ -76,10 +76,10 @@ export default {
     });
 
     function updateSearch(val) {
-      enteredSearchTerm = val;
+      enteredSearchTerm.value = val;
     }
     function sort(mode) {
-      sorting = mode;
+      sorting.value = mode;
     }
 
     return {
