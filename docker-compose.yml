@@ -8,4 +8,4 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./2021-07-30_composition-01-starting-setup/:/app
+      - ./2021-09-04_composition-assignment-1-problem/:/app
