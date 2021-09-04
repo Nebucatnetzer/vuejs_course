@@ -40,11 +40,14 @@ export default {
       data.currentExpenses += enteredExpense.value;
     }
 
-    watch(data, function(_, newValue) {
-      if (newValue.remainingFunds < 0) {
-        alert('You are broke!');
+    watch(
+      () => data.remainingFunds,
+      function(_, newValue) {
+        if (newValue < 0) {
+          alert('You are broke!');
+        }
       }
-    });
+    );
 
     return {
       data,
