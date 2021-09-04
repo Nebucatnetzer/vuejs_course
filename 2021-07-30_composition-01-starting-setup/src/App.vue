@@ -6,7 +6,9 @@
     <div>
       <input type="text" placeholder="First Name" v-model="user.firstName" />
       <input type="text" placeholder="Last Name" v-model="user.lastName" />
+      <input type="text" placeholder="Last Name" ref="lastNameInput" />
     </div>
+    <button @click="setLastName">Change Lastname</button>
   </section>
 </template>
 
@@ -23,6 +25,7 @@ export default {
 
     const userAge = ref(23);
     const userName = ref('Muster');
+    const lastNameInput = ref(null);
 
     watch([userAge, userName], function(newValue, oldValue) {
       console.log('old age: ', oldValue[0]);
@@ -39,9 +42,15 @@ export default {
       user.age = '25';
     }
 
+    function setLastName() {
+      user.lastName = lastNameInput.value.value;
+    }
+
     return {
       user,
-      setAge
+      setAge,
+      setLastName,
+      lastNameInput
     };
   }
 };
