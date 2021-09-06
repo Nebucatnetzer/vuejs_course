@@ -8,4 +8,4 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./2021-09-06_composition-19-vuex-starting-project/:/app
+      - ./2021-09-06_reuse-01-starting-setup/:/app
