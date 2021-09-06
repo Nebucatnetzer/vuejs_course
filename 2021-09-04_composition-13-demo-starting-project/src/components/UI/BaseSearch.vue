@@ -13,9 +13,9 @@
 export default {
   props: ['searchTerm'],
   emits: ['search'],
-  setup(context) {
+  setup(_, { emit }) {
     function search(event) {
-      context.emit('search', event.target.value);
+      emit('search', event.target.value);
     }
     return {
       search
