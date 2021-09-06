@@ -3,22 +3,26 @@
     <h2>{{ title }}</h2>
     <h3>${{ price }}</h3>
     <p>{{ description }}</p>
+    <router-link to="/products/p2">Second Products</router-link>
   </section>
 </template>
 
 <script>
-import { inject } from 'vue';
+import { inject, computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 export default {
   props: ['pid'],
-  setup(props) {
+  setup() {
     const products = inject('products');
-    const selectedProdcut = products.value.find(
-      product => product.id === props.pid
+
+    const route = useRoute();
+    const selectedProdcut = computed(() =>
+      products.value.find(product => product.id === route.params.pid)
     );
-    const title = selectedProdcut.title;
-    const price = selectedProdcut.price;
-    const description = selectedProdcut.description;
+    const title = computed(() => selectedProdcut.value.title);
+    const price = computed(() => selectedProdcut.value.price);
+    const description = computed(() => selectedProdcut.value.description);
 
     return { title, price, description };
   }
