@@ -8,4 +8,4 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./2021-09-06_reuse-01-starting-setup/:/app
+      - ./2021-09-06_reuse-04-composition-api-starting-project/:/app
